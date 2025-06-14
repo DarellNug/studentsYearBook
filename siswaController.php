@@ -1,6 +1,4 @@
 <?php
-// File: siswaController.php
-// Controller functions for CRUD
 require_once __DIR__ . '/db.php';
 
 function getAllSiswa() {

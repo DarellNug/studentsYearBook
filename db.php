@@ -1,7 +1,4 @@
 <?php
-// File: db.php
-// Database connection using PDO
-
 $host = '127.0.0.1';
 $db   = 'studentsyearbook';
 $user = 'root';
