@@ -19,6 +19,7 @@ $siswaList = getAllSiswa();
         background-size: cover;
         min-height: 100vh;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding-bottom: 60px;
     }
 
     .header-card {
@@ -83,6 +84,25 @@ $siswaList = getAllSiswa();
         color: #6a11cb;
         font-weight: 600;
     }
+
+    .footer {
+        color: white;
+        padding: 15px 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .copyright {
+        font-size: 0.9rem;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    .highlight {
+        color: #CB4228;
+        font-weight: bold;
+    }
     </style>
 </head>
 
@@ -134,15 +154,13 @@ $siswaList = getAllSiswa();
                     </div>
 
                     <div class="card-footer bg-white p-3 action-buttons">
-                      <a href="update.php?id=<?= $row['id'] ?>" 
-                        class="btn btn-warning">
-                        <i class="fas fa-edit me-2"></i>Edit
-                      </a>
-                      <a href="delete.php?id=<?= $row['id'] ?>" 
-                        class="btn btn-danger" 
-                        onclick="return confirm('Yakin hapus data siswa ini?')">
-                        <i class="fas fa-trash me-2"></i>Hapus
-                      </a>
+                        <a href="update.php?id=<?= $row['id'] ?>" class="btn btn-warning">
+                            <i class="fas fa-edit me-2"></i>Edit
+                        </a>
+                        <a href="delete.php?id=<?= $row['id'] ?>" class="btn btn-danger"
+                            onclick="return confirm('Yakin hapus data siswa ini?')">
+                            <i class="fas fa-trash me-2"></i>Hapus
+                        </a>
                     </div>
                 </div>
             </div>
@@ -150,9 +168,27 @@ $siswaList = getAllSiswa();
         </div>
     </div>
 
-    <footer class="text-center text-white mt-5 py-3">
-        <p class="mb-0">© 2023 Buku Tahunan Sekolah | Dibuat dengan <i class="fas fa-heart text-danger"></i></p>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="copyright">
+                        © <span id="current-year"></span>
+                        <span class="highlight">Darell Nugraha</span>.
+                        Hak Cipta Dilindungi.
+                    </p>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentYear = new Date().getFullYear();
+
+        document.getElementById('current-year').textContent = currentYear;
+    });
+    </script>
 </body>
 
 </html>
